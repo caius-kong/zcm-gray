@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ztesoft.zsmart.zcm.gray.mapper.GrayRuleMapper">
+    <select id="isGrayRule" resultType="java.lang.Boolean">
+        select (CASE count(r.`value`) WHEN '1' THEN 'true' ELSE 'false' END) as is_gray
+        from gray_bootstrap b
+        left join gray_rule_iterm ri on b.`id`=ri.`bootstrap`
+        left join gray_rule r on ri.`id`=r.`iterm`
+        left join gray_strategy_rule sr on r.`id`=sr.`rule`
+        left join gray_strategy s on sr.`strategy`=s.`id`
+        left join gray_plan p on s.`id`=p.`strategy`
+        WHERE b.`state`=1 and b.`name`=#{bootstrap} and s.`state`=1 and p.`state`=1
+        and if(s.`forward_reverse`=0,  r.`value`=#{ruleValue},  r.`value`!=#{ruleValue});
+    </select>
+
+    <select id="qryGrayRuleListOnGraying" resultType="com.ztesoft.zsmart.zcm.gray.domain.GrayRuleOnGraying">
+        select r.`id` as ruleId, r.`value` as ruleValue, b.name as bootstrapName, s.`forward_reverse` as strategyForwardReverse
+        from gray_bootstrap b
+        left join gray_rule_iterm ri on b.`id`=ri.`bootstrap`
+        left join gray_rule r on ri.`id`=r.`iterm`
+        left join gray_strategy_rule sr on r.`id`=sr.`rule`
+        left join gray_strategy s on sr.`strategy`=s.`id`
+        left join gray_plan p on s.`id`=p.`strategy`
+        WHERE b.`state`=1 and s.`state`=1 and p.`state`=1;
+    </select>
+</mapper>

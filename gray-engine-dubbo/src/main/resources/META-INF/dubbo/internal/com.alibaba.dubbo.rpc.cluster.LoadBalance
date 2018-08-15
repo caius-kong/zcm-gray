@@ -1,0 +1,2 @@
+grayrandom=com.ztesoft.zsmart.zcm.gray.engine.dubbo.cluster.RandomLoadBalance
+grayroundrobin=com.ztesoft.zsmart.zcm.gray.engine.dubbo.cluster.RoundRobinLoadBalance

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ztesoft.zsmart.zcm:zcm-core:9.0.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ztesoft/zsmart/zcm/zcm-core/9.0.3-SNAPSHOT/zcm-core-9.0.3-20180806.023400-59.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ztesoft/zsmart/zcm/zcm-core/9.0.3-SNAPSHOT/zcm-core-9.0.3-20180806.023400-59-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ztesoft/zsmart/zcm/zcm-core/9.0.3-SNAPSHOT/zcm-core-9.0.3-20180806.023400-59-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

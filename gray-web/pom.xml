@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ztesoft.zsmart.zcm</groupId>
+	<artifactId>gray-web</artifactId>
+	<packaging>jar</packaging>
+
+	<name>gray-web</name>
+	<description>灰度发布 - GUI</description>
+
+	<parent>
+		<groupId>com.ztesoft.zsmart.zcm</groupId>
+		<artifactId>zcm-parent</artifactId>
+		<version>9.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+        <!-- zcm -->
+        <dependency>
+            <groupId>com.ztesoft.zsmart.zcm</groupId>
+            <artifactId>zcm-core-autoconfigure</artifactId>
+        </dependency>
+
+        <!-- 框架 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.core</groupId>
+            <artifactId>core-boot-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.core</groupId>
+            <artifactId>core-boot-starter-druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.core</groupId>
+            <artifactId>core-boot-starter-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.core</groupId>
+            <artifactId>core-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- portal x -->
+        <!--<dependency>-->
+            <!--<groupId>com.ztesoft.zsmart.pot</groupId>-->
+            <!--<artifactId>portal-auth-client</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- other -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/target</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <includes>
+                                        <include>application.properties</include>
+                                        <include>docker-entrypoint.sh</include>
+                                        <include>docker-app.def</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.ztesoft.zsmart.core</groupId>
+                <artifactId>core-generate-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>
+                            com/ztesoft/zsmart/zcm/**
+                        </include>
+                    </includes>
+                    <excludes>
+                        <exclude>
+                            com/ztesoft/zsmart/zcm/application/domain/**
+                        </exclude>
+                        <exclude>
+                            com/ztesoft/zsmart/zcm/application/model/**
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pre-test</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+		</plugins>
+	</build>
+
+</project>
