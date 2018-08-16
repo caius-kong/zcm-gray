@@ -57,18 +57,18 @@ local function task ()
 	shared_data:flush_all()
 	shared_data:flush_expired()
 	for k, v in pairs(arr) do
-		local ruleId
-		local rule
+		local ruleKey
+		local ruleValue
 		for k1, v1 in pairs(v) do
 			if k1 == "ruleId" then
-				ruleId = v1
-				rule = v1
+				ruleKey = v1
+				ruleValue = v1
 			else
-				rule = rule .. "_" .. v1
+				ruleValue = ruleValue .. "_" .. v1
 			end
 		end
-		--rule = "ruleId_ruleValue_reverse_bootstrap"
-		shared_data:set(ruleId, rule);
+		--(ruleKey,ruleValue) => ("ruleId", "ruleId_ruleValue_strategyForwardReverse_ruleIterm_appId_bootstrap")
+		shared_data:set(ruleKey, ruleValue);
 	end
 end
 
