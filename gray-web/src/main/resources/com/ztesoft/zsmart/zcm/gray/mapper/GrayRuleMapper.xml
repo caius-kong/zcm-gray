@@ -14,13 +14,14 @@
     </select>
 
     <select id="qryGrayRuleListOnGraying" resultType="com.ztesoft.zsmart.zcm.gray.domain.GrayRuleOnGraying">
-        select r.`id` as ruleId, r.`value` as ruleValue, b.name as bootstrapName, s.`forward_reverse` as strategyForwardReverse
+        select a.`application_id` as appId, ri.`name` as ruleIterm, r.`id` as ruleId, r.`value` as ruleValue, b.name as bootstrapName, s.`forward_reverse` as strategyForwardReverse
         from gray_bootstrap b
         left join gray_rule_iterm ri on b.`id`=ri.`bootstrap`
         left join gray_rule r on ri.`id`=r.`iterm`
         left join gray_strategy_rule sr on r.`id`=sr.`rule`
         left join gray_strategy s on sr.`strategy`=s.`id`
         left join gray_plan p on s.`id`=p.`strategy`
+        left join gray_applications a on p.`id`=a.`plan`
         WHERE b.`state`=1 and s.`state`=1 and p.`state`=1;
     </select>
 </mapper>
