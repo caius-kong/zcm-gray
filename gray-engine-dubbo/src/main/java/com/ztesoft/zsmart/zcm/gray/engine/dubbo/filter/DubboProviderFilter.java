@@ -7,7 +7,7 @@ import com.alibaba.dubbo.rpc.Result;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.RpcException;
 import com.ztesoft.zsmart.zcm.gray.engine.dubbo.model.Gray;
-import com.ztesoft.zsmart.zcm.gray.engine.dubbo.model.GrayContextHolder;
+import com.ztesoft.zsmart.zcm.gray.engine.dubbo.context.GrayContextHolder;
 
 /**
  * @author kongyunhui on 2018/8/15.

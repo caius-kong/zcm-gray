@@ -1,4 +1,6 @@
-package com.ztesoft.zsmart.zcm.gray.engine.dubbo.model;
+package com.ztesoft.zsmart.zcm.gray.engine.dubbo.context;
+
+import com.ztesoft.zsmart.zcm.gray.engine.dubbo.model.Gray;
 
 /**
  * @author kongyunhui on 2018/8/15.

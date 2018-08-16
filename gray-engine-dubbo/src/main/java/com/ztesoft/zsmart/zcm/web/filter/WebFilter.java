@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ztesoft.zsmart.zcm.gray.engine.dubbo.model.Gray;
-import com.ztesoft.zsmart.zcm.gray.engine.dubbo.model.GrayContextHolder;
+import com.ztesoft.zsmart.zcm.gray.engine.dubbo.context.GrayContextHolder;
 
 /**
  * @author kongyunhui on 2018/8/15.
