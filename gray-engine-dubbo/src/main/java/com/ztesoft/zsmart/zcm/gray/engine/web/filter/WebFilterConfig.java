@@ -1,4 +1,4 @@
-package com.ztesoft.zsmart.zcm.web.filter;
+package com.ztesoft.zsmart.zcm.gray.engine.web.filter;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
