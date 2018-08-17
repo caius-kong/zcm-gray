@@ -12,10 +12,10 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
  
     <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20884" />
+    <dubbo:protocol name="dubbo" port="20883" />
 
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.kyh.api.NewService" ref="newService" filter="dubboProviderFilter"/>
 
-	<bean id="newService" class="com.kyh.test3G.NewServiceImplGray" />
+	<bean id="newService" class="com.kyh.test3.NewServiceImpl" />
 </beans>

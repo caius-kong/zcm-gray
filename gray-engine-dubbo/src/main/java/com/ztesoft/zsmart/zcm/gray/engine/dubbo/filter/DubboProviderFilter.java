@@ -17,7 +17,7 @@ public class DubboProviderFilter implements Filter{
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         // 将dubbo上下文中灰度标识写入线程上下文
         String gray_flag = RpcContext.getContext().getAttachment(Gray.GRAY_FLAG);
-        GrayContextHolder.setContextHolder(new Gray(gray_flag));
+//        GrayContextHolder.setContextHolder(new Gray(gray_flag));
         return invoker.invoke(invocation);
     }
 }

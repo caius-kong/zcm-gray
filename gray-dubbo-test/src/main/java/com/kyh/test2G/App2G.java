@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @SpringBootApplication
 @ImportResource("classpath:dubbo-app2G.xml")
-@ComponentScan({"com.kyh.test2G", "com.ztesoft.zsmart.zcm.web.filter"})
+@ComponentScan({"com.kyh.test2G", "com.ztesoft.zsmart.zcm.gray.engine.web.filter"})
 public class App2G {
     public static void main(String[] args) {
         System.setProperty("server.port", "8083");

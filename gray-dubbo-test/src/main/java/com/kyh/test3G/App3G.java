@@ -10,10 +10,10 @@ import org.springframework.context.annotation.ImportResource;
  */
 @SpringBootApplication
 @ImportResource("classpath:dubbo-app3G.xml")
-@ComponentScan({"com.kyh.test3G", "com.ztesoft.zsmart.zcm.web.filter"})
+@ComponentScan({"com.kyh.test3G", "com.ztesoft.zsmart.zcm.gray.engine.web.filter"})
 public class App3G {
     public static void main(String[] args) {
-        System.setProperty("server.port", "8084");
+        System.setProperty("server.port", "8085");
         SpringApplication.run(App3G.class, args);
     }
 }

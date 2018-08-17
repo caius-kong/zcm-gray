@@ -6,7 +6,7 @@
 
     <groupId>com.ztesoft.zsmart.zcm</groupId>
     <artifactId>gray-engine-lua</artifactId>
-    <version>9.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
     <description>这个是nginx的lua引擎，打包后会生成zip文件</description>
     <build>

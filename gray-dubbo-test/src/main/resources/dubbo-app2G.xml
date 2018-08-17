@@ -20,4 +20,10 @@
 	<bean id="demoService" class="com.kyh.test2G.DemoServiceImplGray" />
 	
 	<dubbo:reference id="newService" interface="com.kyh.api.NewService" loadbalance="grayrandom"/>
+
+	<!-- 同步配置 -->
+	<bean class="com.ztesoft.zsmart.zcm.gray.engine.dubbo.GrayConfigAgent">
+		<property name="grayServer" value="http://127.0.0.1:8080/"/>
+		<property name="applicationServer" value="http://10.45.80.26:8380/"/>
+	</bean>
 </beans>

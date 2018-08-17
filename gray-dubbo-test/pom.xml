@@ -24,7 +24,7 @@
         <dependency>
             <groupId>com.ztesoft.zsmart.zcm</groupId>
             <artifactId>gray-engine-dubbo</artifactId>
-            <version>9.1-SNAPSHOT</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- dubbo -->
         <dependency>
